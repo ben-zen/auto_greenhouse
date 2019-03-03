@@ -2,9 +2,11 @@
 
 Maintaining a garden in a small apartment is hard; there's hardly any space for plants--let alone the inevitable mess that comes from dealing with soil, you're limited to container-friendly plants, and no matter how excellent your apartment's positioning is (southern exposure being best, but sometimes you don't want your blinds open), light is always a problem. So what's someone with a desire to grow their fresh herbs or other plants to do? Optimize!
 
+Note that this is not yet touching on hydroponics. That's a whole different set of interesting questions to ask at some later point.
+
 ## Prior art
 
-Of course, this is not a new problem. There's in-market solutions for growing herbs under full-spectrum lights; [AeroGarden](https://www.aerogarden.com/indoor-garden-comparison-chart) is a big name in that. So what can some hackers at home do that a commercial venture can't? Mostly, learn more about what your garden is doing, when, and own the resulting data.
+Of course, this is not a new problem. There's in-market solutions for growing herbs under full-spectrum lights; [AeroGarden](https://www.aerogarden.com/indoor-garden-comparison-chart) is a big name in that. So what can some hackers at home do that a commercial venture can't? Mostly, learn more about what your garden is doing, when, and own the resulting data. Plus, if you don't care about looks, you can be way more efficient with your lights and pick just the spectra the plants need.
 
 ## Variables in gardening
 
@@ -21,6 +23,10 @@ Plants almost exclusively acuqire water through their roots, and some require mo
 Soil is a mixture of carbon and nitrogen sources--sphagnum moss, decomposed plant matter, charcoal, other amendments that form the basis of the soil--as well as micronutrients: plants require calcium, iron, manganese, and a litany of other elements that are only needed in (often) microscopic quantities, but without them the plants will suffer. There's other components, too; moisture retaining materials, aeration improvers, worms and grubs. For container gardening, there is little in the way of active soil biome, but the micronutrient load is often provided by pre-mixed soil, but amendments are available.
 
 The other aspect of soil composition to consider is its pH level; different plants require different degrees of acidity or alkalinity. Each plant you want to grow will have different requirements, and will need to be managed differently. The details of this are beyond the scope of this paper, and should be handled on a case by case basis; see notes from a state university extension service for more details.
+
+### Air movement
+
+Plants should ideally get some air movement. They don't necessarily need a cyclone, but having some motion is better for them.
 
 ## Options for automation and first steps
 
@@ -52,6 +58,6 @@ This system should announce state changes, or at least make them available over 
 
 ### Drip/pump based watering to manage humidity
 
-Capacitive soil sensors are available; each one should be tested and calibrated, and can be used with a sufficiently large backing board (I'm thinking an Arduino Mega as a control board, potentially) to collect data from all plants in the greenhouse under one device; again, reporting over MQTT allows tracking from a central location.
+After getting soil sensors and setting them up to track the humidity level, we can start working on automating watering. Over on [Instructables](https://www.instructables.com/id/Automatically-water-your-small-indoor-plant-using-/) there's a project that does more or less what I'm looking for, although it appears a little more forceful than the approach I want to take.
 
-An initial concept for this is perforated tubing planted slightly below the soil surface, possibly supplied by a small pump?
+The specific watering mechanism I'd like to see is tubing buried around the perimeter of a pot with perforations allowing water to seep out.
